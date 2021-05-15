@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#auto-named `main.exe`
+main.exe
+#executeble files
+*.exe
