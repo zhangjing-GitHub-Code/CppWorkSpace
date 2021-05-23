@@ -8,7 +8,7 @@ int main(){
 	for (int i=100;i<1000;i++){
 		int tmp=i;
 		while (tmp){
-			cmp+=(tmp%10)^3;
+			cmp+=(tmp%10)*(tmp%10)*(tmp%10);
 			tmp /=10;
 		}
 		if (i == cmp){
