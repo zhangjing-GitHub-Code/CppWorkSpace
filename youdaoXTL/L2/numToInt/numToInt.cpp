@@ -46,11 +46,11 @@ int toDexStr(string bin){
     return res;
 }
 int main(){
-    string num;
+    int num;
     printf("enter number: ");
     cin >> num;
     //int a=pow(2,2);
-    cout<<toDexStr(num)<<endl;
+    cout<<toBin(num)<<endl;
     return 0;
 }
 /*#include<cstdio>
