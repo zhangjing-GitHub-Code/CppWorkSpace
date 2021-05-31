@@ -19,5 +19,5 @@ int main(){
 		mylst.push_back(rand()%15);
 	}
 	mylst=bubbleSort(mylst);
-	for(int c=0;c<mylst.size();c++) cout << mylst[c] <<endl;
+	for(int c=mylst.size();c>0;c--) cout << mylst[c] <<", ";
 }
