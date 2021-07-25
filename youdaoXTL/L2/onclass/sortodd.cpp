@@ -11,7 +11,7 @@ int main(){
 			odd[idx++]=tmp;
 		}
 	}
-	for (int i=0;i<idx;i++){
+	for (int i=0;i<idx-1;i++){
 		bool issw=false;
 		for (int j=0;j<idx-i-1;j++){
 			if(odd[j]>odd[j+1]){
