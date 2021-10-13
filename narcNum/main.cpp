@@ -4,7 +4,7 @@ using namespace std;
 int main(){
 	int in,cmp;
 	vector<int> ans;
-	cin >> in;
+	//cin >> in;
 	for (int i=100;i<1000;i++){
 		int tmp=i;
 		while (tmp){
@@ -16,7 +16,7 @@ int main(){
 		}
 	}
 	for (int i=0;i<ans.size();i++){
-		cout << ans[i];
+		cout << ans[i] << endl;
 	}
 	return 0;
 }
