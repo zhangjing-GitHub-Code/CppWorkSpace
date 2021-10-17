@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "cmath": "cpp",
         "*.tcc": "cpp",
         "array": "cpp",
@@ -41,5 +42,14 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
+=======
+        "*.tcc": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp"
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
     }
 }

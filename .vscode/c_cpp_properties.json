@@ -4,17 +4,29 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+<<<<<<< HEAD
                 "E:/software/Arduino/**"
+=======
+                "E:\\Software\\mingw-w64\\mingw64\\include/**",
+                "E:\\Software\\mingw-w64\\mingw64\\lib/**",
+                "E:\\Software\\mingw-w64\\mingw64/**"
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
+<<<<<<< HEAD
             "compilerPath": "E:\\software\\mingw64\\bin\\gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64"
+=======
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
         }
     ],
     "version": 4

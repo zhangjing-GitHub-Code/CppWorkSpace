@@ -3,14 +3,62 @@
     "tasks": [
         {
             "label": "g++",
+<<<<<<< HEAD
             //"type": "shell",
             "windows": {
                 "command": "g++.exe",
+=======
+            "type": "shell",
+            "windows": {
+                "command": "/data/data/com.termux/files/usr/bin/g++",
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
                 "args": [
                     "-g",
                     "${file}",
                     "-o",
+<<<<<<< HEAD
                     "${fileDirname}\\${fileBasenameNoExtension}.exe"
+=======
+                    "${fileDirname}/${fileBasenameNoExtension}"
+                ]
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "."
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "g++onwin",
+            "type": "shell",
+            "windows": {
+                "command": "E:\\Software\\mingw-w64\\mingw64\\bin\\g++.exe",
+                "args": [
+                    "-g",
+                    "${file}",
+                    "-o",
+                    "${fileDirname}/${fileBasenameNoExtension}.exe"
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
                 ]
             },
             "problemMatcher": {
@@ -41,22 +89,39 @@
         },
         {
             "type": "cppbuild",
+<<<<<<< HEAD
             "label": "C/C++: g++.exe 生成活动文件",
             "command": "E:/software/mingw64/bin/g++.exe",
+=======
+            "label": "C/C++: g++ 生成活动文件",
+            "command": "/data/data/com.termux/files/usr/bin/g++",
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
             "args": [
                 "-g",
                 "${file}",
                 "-o",
+<<<<<<< HEAD
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "E:\\software\\mingw64\\bin"
             },
+=======
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            /*"options": {
+                "cwd": "E:\\software\\mingw64\\bin"
+            },*/
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
             "problemMatcher": [
                 "$gcc"
             ],
             "group": "build",
+<<<<<<< HEAD
             "detail": "编译器: E:\\software\\mingw64\\bin\\g++.exe"
+=======
+            "detail": "编译器: g++"
+>>>>>>> 85beb7a70d4cc5fcecbad4a0a6af8150a7ce4114
         }
     ]
 }
