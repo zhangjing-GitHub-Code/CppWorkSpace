@@ -12,7 +12,10 @@ void qingju(){
 		}
 	}
 }
+#include<cmath>
+
 int main(){
 	qingju();
+	int a=pow(2, 5);
 	return 0;
 }
