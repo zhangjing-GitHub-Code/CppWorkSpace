@@ -1,0 +1,1 @@
+G:\documents\CppWorkSpace\mysqlconn>g++ mysqlconn.cpp -o mysqlcon.exe -L "G:\software\MySQL\MySQL Server 8.0\lib" -I "G:\software\MySQL\MySQL Server 8.0\include" -llibmysql

@@ -1,35 +1,36 @@
 #include<cstdio>
 #include<iostream>
 #include<string>
-#include<mysql.h>
+#include "mysql.h"
+//#pragma comment(lib,¡°libmysql.lib¡±)
 using namespace std;
 MYSQL * mysql;
 //typedef cout std::cout;
 //typedef cin std::cin;
 bool exeSQL(string sql,int show=0)
 {
-	MYSQL_RES *result;    //æŒ‡å‘æŸ¥è¯¢ç»“æœçš„æŒ‡é’ˆ
+	MYSQL_RES *result;    //Ö¸Ïò²éÑ¯½á¹ûµÄÖ¸Õë
 	MYSQL_ROW row;
-    //mysql_query()æ‰§è¡ŒæˆåŠŸè¿”å›0,æ‰§è¡Œå¤±è´¥è¿”å›é0å€¼ã€‚
+    //mysql_query()Ö´ĞĞ³É¹¦·µ»Ø0,Ö´ĞĞÊ§°Ü·µ»Ø·Ç0Öµ¡£
     if (mysql_query(mysql,sql.c_str()))
     {
         cout<<"Query Error: "<<mysql_error(mysql);
         return false;
     }
-    else // æŸ¥è¯¢æˆåŠŸ
+    else // ²éÑ¯³É¹¦
     {
 		if (show==1){
-        result = mysql_store_result(mysql);  //è·å–ç»“æœé›†
-        if (result)  // è¿”å›äº†ç»“æœé›†
+        result = mysql_store_result(mysql);  //»ñÈ¡½á¹û¼¯
+        if (result)  // ·µ»ØÁË½á¹û¼¯
         {
            int  num_fields = mysql_num_fields(result);
            int  num_rows=mysql_num_rows(result);
-           for(int i=0;i<num_rows;i++) //è¾“å‡ºæ¯ä¸€è¡Œ
+           for(int i=0;i<num_rows;i++) //Êä³öÃ¿Ò»ĞĞ
             {
-                //è·å–ä¸‹ä¸€è¡Œæ•°æ®
+                //»ñÈ¡ÏÂÒ»ĞĞÊı¾İ
                 row=mysql_fetch_row(result);
                 if(!row) break;
-                for(int j=0;j<num_fields;j++)  //è¾“å‡ºæ¯ä¸€å­—æ®µ
+                for(int j=0;j<num_fields;j++)  //Êä³öÃ¿Ò»×Ö¶Î
                 {
                     cout<<row[j]<<"\t";
                 }
@@ -54,12 +55,12 @@ bool exeSQL(string sql,int show=0)
 }
 void funcadd(){
 	string id;
-	char name[45],sex[6];
+	char name[45],sex[6];//no chinese because can't set encoding in Windows7
 	cout << "ID:";
 	cin >> id;
 	cout << "name:";
 	cin >> name;
-	cout << "sex(in chinese):";
+	cout << "sex(male/famale):";
 	cin>>sex;
 	string exe;
 	exe="insert into `user` values(";
@@ -75,10 +76,38 @@ void funcadd(){
 	if (yn=="y"){
 		exeSQL(exe);
 	}
-	else printf("å·²å–æ¶ˆ\n");
+	else printf("ÒÑÈ¡Ïû\n");
 }
 void funcmod(){
-	;
+	printf("ÊäÈëĞèÒªĞŞ¸ÄĞÅÏ¢µÄID: ");
+	string id;
+	cin >> id;
+	printf("ÊäÈëĞèÒªĞŞ¸ÄµÄĞÅÏ¢£¨1:ĞÕÃû,2:ĞÔ±ğ£©: ");
+	int opr=0;
+	cin >> opr;
+	if (opr==1){
+		printf("ÊäÈëĞèÒªĞŞ¸ÄµÄĞÕÃû: ");
+		string name;
+		cin >> name;
+		string exec="update user set name='";
+		exec+=name;
+		exec+="' where id=";
+		exec+=id;
+		exec+=";";
+		exeSQL(exec);
+	}else if (opr==2){
+		printf("ÊäÈëĞèÒªĞŞ¸ÄµÄĞÔ±ğ: ");
+		string sex;
+		cin >> sex;
+		string exec="update user set sex='";
+		exec+=sex;
+		exec+="' where id=";
+		exec+=id;
+		exec+=";";
+		exeSQL(exec);
+	}else{
+		printf("²Ù×÷ÎŞĞ§£¬ÒÑÈ¡Ïû\n");
+	}
 }
 void funcdel(){
 	;
@@ -94,24 +123,28 @@ int main(){
 	exeSQL("select * from user;",1);
 	int opt=1;
 	while(opt){
-		printf("æ“ä½œ(1:æ·»åŠ ,2:ä¿®æ”¹,3:åˆ é™¤,0:é€€å‡º): ");
+		printf("²Ù×÷(1:Ìí¼Ó,2:ĞŞ¸Ä,3:É¾³ı,0:ÍË³ö): ");
 		scanf("%d",&opt);
 		switch(opt){
 			case 1:
 			  funcadd();
-			  printf("now:\nID\tname\tsex\n");
+			  printf("now:\nID\t\tname\tsex\n");
 			  exeSQL("select * from user;",1);
 			  break;
 			case 2:
 			  funcmod();
+			  printf("now:\nID\t\tname\tsex\n");
+			  exeSQL("select * from user;",1);
 			  break;
 			case 3:
 			  funcdel();
+			  printf("now:\nID\t\tname\tsex\n");
+			  exeSQL("select * from user;",1);
 			  break;
 			case 0:
 			  break;
 			default:
-			  printf("æ“ä½œæ— æ•ˆ!\n");
+			  printf("²Ù×÷ÎŞĞ§!\n");
 			  break;
 		}
 	}
