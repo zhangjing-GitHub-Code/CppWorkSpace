@@ -1,0 +1,19 @@
+bsname=`basename $1  .cpp`
+if ! [ -f $bsname.in ];then
+    echo "-> Write into '$bsname.in' (Ctrl-d end)"
+    mapfile -t arr
+    printf '%s\n' "${arr[@]}" >$bsname.in
+    #bash -c "cat > $1.in << EOF"
+else
+    echo "-> In file '$bsname.in' exists."
+fi
+echo -n "-> Compling... "
+g++ $bsname.cpp -o $bsname
+if [ $? -eq 0 ];then
+    echo "ok"
+else
+    echo "Error"
+fi
+./$bsname < $bsname.in|cat >$bsname.out
+echo "-> Output:"
+cat $bsname.out
