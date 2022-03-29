@@ -732,3 +732,5 @@ main.exe
 #executeble files
 *.exe
 >>>>>>> 13e0d893c11c89b707fd9ebb36f2177ba21f52f5
+mysqlconn/include/
+mysqlconn/lib/
